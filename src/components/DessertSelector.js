@@ -7,7 +7,7 @@ const DessertSelector = () => {
         'Glace',
         'Tarte aux fruits',
         'Cheesecake',
-        'Tiramisu spéculoos'
+        'Tiramisu spéculoos',
         'crumble pommes'
     ];
 
