@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 
 const DessertSelector = () => {
-    const [selectedDesserts, setSelectedDesserts] = useState([]);
-    const desserts = ['Gâteau au chocolat', 'Glace', 'Tarte aux fruits', 'Cheesecake'];
+    const [dessertsSelectionnes, setDessertsSelectionnes] = useState([]);
+    const desserts = [
+        'Gâteau au chocolat',
+        'Glace',
+        'Tarte aux fruits',
+        'Cheesecake',
+        'Tiramisu spéculoos' 
+    ];
 
-    const handleDessertChange = (dessert) => {
-        setSelectedDesserts((prevSelected) => {
-            if (prevSelected.includes(dessert)) {
-                return prevSelected.filter((d) => d !== dessert);
+    const gererChangementDessert = (dessert) => {
+        setDessertsSelectionnes((precedent) => {
+            if (precedent.includes(dessert)) {
+                return precedent.filter((d) => d !== dessert);
             } else {
-                return [...prevSelected, dessert];
+                return [...precedent, dessert];
             }
         });
     };
@@ -23,8 +29,8 @@ const DessertSelector = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                checked={selectedDesserts.includes(dessert)}
-                                onChange={() => handleDessertChange(dessert)}
+                                checked={dessertsSelectionnes.includes(dessert)}
+                                onChange={() => gererChangementDessert(dessert)}
                             />
                             {dessert}
                         </label>
@@ -33,7 +39,7 @@ const DessertSelector = () => {
             </ul>
             <h3>Desserts sélectionnés :</h3>
             <ul>
-                {selectedDesserts.map((dessert) => (
+                {dessertsSelectionnes.map((dessert) => (
                     <li key={dessert}>{dessert}</li>
                 ))}
             </ul>
