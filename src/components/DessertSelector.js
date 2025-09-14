@@ -8,7 +8,7 @@ const DessertSelector = () => {
         'Tarte aux fruits',
         'Cheesecake',
         'Tiramisu spéculoos'
-        'basboussa'
+        'crumble pommes'
     ];
 
     const gererChangementDessert = (dessert) => {
