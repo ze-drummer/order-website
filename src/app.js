@@ -1,35 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const dessertSection = document.getElementById("dessert-selection");
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const ordersRouter = require('./routes/orders');
 
-  // On crée un bouton dans la section dessert
-  const button = document.createElement("button");
-  button.textContent = "Afficher les desserts";
-  dessertSection.appendChild(button);
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-  // Liste de desserts
-  const desserts = ["Tiramisu", "Mousse au chocolat", "Crème brûlée", "Cheesecake"];
+// Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../public')));
 
-  // Quand on clique, on ajoute les desserts avec cases à cocher
-  button.addEventListener("click", () => {
-    const form = document.createElement("form");
+// Routes
+app.use('/api/orders', ordersRouter);
 
-    desserts.forEach(dessert => {
-      const label = document.createElement("label");
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.value = dessert;
-
-      label.appendChild(checkbox);
-      label.append(" " + dessert);
-      form.appendChild(label);
-      form.appendChild(document.createElement("br"));
-    });
-
-    dessertSection.appendChild(form);
-
-    // On désactive le bouton après ajout (évite doublons)
-    button.disabled = true;
-  });
+// Démarrer le serveur
+app.listen(PORT, () => {
+    console.log(`Le serveur fonctionne sur http://localhost:${PORT}`);
 });
 
 
