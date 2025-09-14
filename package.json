@@ -1,0 +1,25 @@
+{
+  "name": "order-website",
+  "version": "1.0.0",
+  "description": "Un site en local pour sélectionner des plats et desserts, payer et planifier une commande.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Erreur : aucun test spécifié\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "keywords": [
+    "nourriture",
+    "commande",
+    "site"
+  ],
+  "author": "Augustin",
+  "license": "Augustin"
+}
