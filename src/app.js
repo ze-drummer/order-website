@@ -19,16 +19,3 @@ app.listen(PORT, () => {
     console.log(`Le serveur fonctionne sur http://localhost:${PORT}`);
 });
 
-import React from 'react';
-import DessertSelector from './DessertSelector';
-
-function App() {
-  return (
-    <div>
-      <h1>Bienvenue sur notre site de commande</h1>
-      <DessertSelector />
-    </div>
-  );
-}
-
-export default App;
